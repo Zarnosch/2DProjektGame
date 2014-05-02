@@ -17,6 +17,4 @@ public class TileMap {
         renderer = new OrthogonalTiledMapRenderer(map);
         renderer.getSpriteBatch().begin();
     }
-
-
 }
