@@ -2,31 +2,69 @@ package com.game.project;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.game.project.boot.BootMain;
+import com.game.project.menu.MenuMain;
 
 public class GameMain extends Game {
-	SpriteBatch batch;
-	Texture img;
-	
-	AssetManager assetManager = new AssetManager();
-	
-	
-	@Override
-	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("images/badlogic.jpg");
-		assetManager.load("images/badlogic.jpg", Texture.class);
-	}
+    //Initialize assetManager
+    public AssetManager assetManager = new AssetManager();
 
-	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
-		Gdx.input.getX();
-	}
+    //Loading States
+/*    public void LoadBoot() {
+        assetManager.load("images/badlogic.jpg",  Texture.class);
+        while(assetManager.getProgress() != 1.0){
+            assetManager.update();
+        }
+        System.out.println(assetManager.isLoaded("images/badlogic.jpg"));
+
+        setScreen(new BootMain(assetManager));
+    }
+
+    public void LoadMenu() {
+        assetManager.load("images/badlogic.jpg",  Texture.class);
+        super.setScreen(new MenuMain());
+    }
+
+    public void LoadPlay() {
+        assetManager.load("images/loading.jpg",  Texture.class);
+    }
+
+    public void LoadScore() {
+        assetManager.load("images/badlogic.jpg", Texture.class);
+    }*/
+
+    @Override
+    public void create () {
+        assetManager.load("images/badlogic.jpg",  Texture.class);
+        while(assetManager.getProgress() != 1.0){
+            assetManager.update();
+        }
+        System.out.println(assetManager.isLoaded("images/badlogic.jpg"));
+        setScreen(new BootMain(assetManager));
+    }
+
+    public void render(){
+        super.render();
+    }
+
+    public void resize(int width, int height) {
+        super.resize(width, height);
+    }
+
+    public void pause() {
+        super.pause();
+    }
+
+    public void resume() {
+        super.resume();
+    }
+
+    public void dispose() {
+        super.dispose();
+    }
 }
