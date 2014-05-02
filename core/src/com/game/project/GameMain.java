@@ -24,7 +24,7 @@ public class GameMain extends Game {
 		System.out.println(assetManager.isLoaded("images/badlogic.jpg"));
 		
 		super.setScreen(bootMain);
-//		bootMain.render();
+		bootMain.render();
 	}
 	
 	public void LoadMenu() {
