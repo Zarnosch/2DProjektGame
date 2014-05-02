@@ -1,41 +1,32 @@
 package com.game.project;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.game.project.play.PlayMain;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameMain extends Game {
+	SpriteBatch batch;
+	Texture img;
+	
 	AssetManager assetManager = new AssetManager();
-
+	
+	
 	@Override
 	public void create () {
+		batch = new SpriteBatch();
+		img = new Texture("images/badlogic.jpg");
 		assetManager.load("images/badlogic.jpg", Texture.class);
-        setScreen(new PlayMain());
 	}
 
-    @Override
-    public void render() {
-        super.render();
-    }
-
-    @Override
-    public void dispose() {
-        super.dispose();
-    }
-
-    @Override
-    public void resize(int width, int height) {
-        super.resize(width, height);
-    }
-
-    @Override
-    public void pause() {
-        super.pause();
-    }
-
-    @Override
-    public void resume() {
-        super.resume();
-    }
+	public void render () {
+		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		batch.begin();
+		batch.draw(img, 0, 0);
+		batch.end();
+		Gdx.input.getX();
+	}
 }
