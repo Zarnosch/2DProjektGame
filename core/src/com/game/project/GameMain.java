@@ -11,65 +11,21 @@ import com.game.project.boot.BootMain;
 import com.game.project.menu.MenuMain;
 
 public class GameMain extends Game {
-<<<<<<< HEAD
-	//Initialize assetManager
-	public AssetManager assetManager = new AssetManager();
-	
-	//Loading States	
-	public void LoadBoot() {
-		BootMain bootMain = new BootMain(assetManager);
-		assetManager.load("images/badlogic.jpg",  Texture.class);
-		while(assetManager.getProgress() != 1.0){
-			assetManager.update();
-		}
-		System.out.println(assetManager.isLoaded("images/badlogic.jpg"));
-		
-		super.setScreen(bootMain);
-		bootMain.render();
-	}
-	
-	public void LoadMenu() {
-		assetManager.load("images/badlogic.jpg",  Texture.class);
-		super.setScreen(new MenuMain());
-	}
-	
-	public void LoadPlay() {
-		assetManager.load("images/loading.jpg",  Texture.class);
-	}
-	
-	public void LoadScore() {
-		assetManager.load("images/badlogic.jpg",  Texture.class);
-	}
-
-	@Override
-	public void create () {
-		LoadBoot();
-
-	}
-	
-	public void draw(){
-		super.render();
-	}
-
-
-	public void gameStates () {
-	}
-=======
     //Initialize assetManager
     public AssetManager assetManager = new AssetManager();
->>>>>>> 67d6a55f2474597650ce3525934fd5c5627f87c8
 
     //Loading States
-/*    public void LoadBoot() {
-        assetManager.load("images/badlogic.jpg",  Texture.class);
+    public void LoadBoot() {
+        assetManager.load("images/loading.jpg",  Texture.class);
         while(assetManager.getProgress() != 1.0){
             assetManager.update();
         }
-        System.out.println(assetManager.isLoaded("images/badlogic.jpg"));
+        System.out.println(assetManager.isLoaded("images/loading.jpg"));
 
         setScreen(new BootMain(assetManager));
+        
     }
-
+    
     public void LoadMenu() {
         assetManager.load("images/badlogic.jpg",  Texture.class);
         super.setScreen(new MenuMain());
@@ -81,16 +37,11 @@ public class GameMain extends Game {
 
     public void LoadScore() {
         assetManager.load("images/badlogic.jpg", Texture.class);
-    }*/
+    }
 
     @Override
     public void create () {
-        assetManager.load("images/badlogic.jpg",  Texture.class);
-        while(assetManager.getProgress() != 1.0){
-            assetManager.update();
-        }
-        System.out.println(assetManager.isLoaded("images/badlogic.jpg"));
-        setScreen(new BootMain(assetManager));
+    	LoadBoot();
     }
 
     public void render(){
