@@ -31,7 +31,7 @@ public class PlayMain extends ScreenAdapter {
         map = tmxLoader.load("maps/devmap.tmx");
 
         renderer = new OrthogonalTiledMapRenderer(map);
-        player = new Player(new Sprite(new Texture("images/platzhalter_1.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        player = new Player(new Sprite(new Texture("images/front.png")), (TiledMapTileLayer) map.getLayers().get(0));
         player.setPosition(200, 200);
 
         Gdx.input.setInputProcessor(player);

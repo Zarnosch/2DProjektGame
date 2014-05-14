@@ -3,8 +3,11 @@ package com.game.project.play;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector2;
 
@@ -13,10 +16,22 @@ public class Player extends Sprite implements InputProcessor {
     Vector2 velocity = new Vector2(0,0);
     float speed = 60*2;
     TiledMapTileLayer collLayer;
+    Animation animation;
+    Texture left;
+    Texture right;
+    Texture back;
+    Texture front;
 
     public Player(Sprite image, TiledMapTileLayer collLayer) {
         super(image);
         this.collLayer = collLayer;
+
+        left = new Texture("images/left.png");
+        right = new Texture("images/right.png");
+        front = new Texture("images/front.png");
+        back = new Texture("images/back.png");
+        // if animation
+        // animation = new Animation(0.5f, new TextureRegion(new Texture("images/left.png")), new TextureRegion(new Texture("images/right")), new TextureRegion(new Texture("images/back.png")));
     }
 
     @Override
@@ -134,15 +149,19 @@ public class Player extends Sprite implements InputProcessor {
         switch (keycode) {
             case Input.Keys.W:
                 velocity.y = speed;
+                setTexture(back);
                 break;
             case Input.Keys.S:
                 velocity.y = -speed;
+                setTexture(front);
                 break;
             case Input.Keys.A:
                 velocity.x = -speed;
+                setTexture(left);
                 break;
             case Input.Keys.D:
                 velocity.x = speed;
+                setTexture(right);
                 break;
         }
         return true;
