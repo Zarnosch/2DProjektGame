@@ -75,5 +75,8 @@ public class PlayMain extends ScreenAdapter {
     @Override
     public void dispose () {
         batch.dispose();
+        map.dispose();
+        renderer.dispose();
+        player.dispose();
     }
 }

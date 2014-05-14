@@ -215,4 +215,11 @@ public class Player extends Sprite implements InputProcessor {
     public boolean scrolled(int amount) {
         return false;
     }
+
+    public void dispose() {
+        left.dispose();
+        right.dispose();
+        front.dispose();
+        back.dispose();
+    }
 }
