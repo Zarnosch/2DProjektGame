@@ -3,17 +3,14 @@ package com.game.project.boot;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.game.project.GameMain;
 
 
 public class BootMain extends ScreenAdapter {
 	private SpriteBatch batch;
 	Texture img;
-	Camera camera;
 
 	private AssetManager assetManager_;
 
